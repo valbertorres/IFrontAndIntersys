@@ -7,10 +7,10 @@
           <div class="form-group">
               <label for="cnpj" class="control-label col-sm-3">CNPJ da Empresa:</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="Cnpj">
+                <input type="text" class="form-control" name="Cnpj" required [(ngModel)]="login.ccnpj">
               </div>
               <div class="col-sm-5">
-                <input type="text" class="form-control" name="suvCnpj" disabled>
+                <input type="text" class="form-control" name="subCnpj" disabled>
               </div>
             </div>
             
@@ -18,7 +18,7 @@
             <div class="form-group">
                    <label for="exampleSelect1" class="control-label col-sm-3">Serviço:</label>
                     <div class="col-sm-8">
-                      <select class="form-control" id="exampleSelect1">
+                      <select class="form-control" id="exampleSelect1" >
                       <option></option>
                     </select>
                     </div>
@@ -28,7 +28,7 @@
             <div class="form-group">
               <label for="cnpj" class="control-label col-sm-3">CPF do Usuário:</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="cpf">
+                <input type="text" class="form-control" name="cpf" required>
               </div>
               <div class="col-sm-5">
                 <input type="text" class="form-control" name="subCpf" disabled>
@@ -45,7 +45,7 @@
             <div class="form-group"> 
               <div class="col-md-16 text-center">
                   <button class="btn btn-primary btn-lg" type="submit" >Acessar</button>
-                  <button class="btn btn-default btn-lg" >Esqueci Minha Senha</button>
+                  <button class="btn btn-default btn-lg" (click)="log(login)" >Esqueci Minha Senha</button>
                  
                   <!-- Button trigger modal -->
                     <button type="button" id="mymodal" class="btn btn-default btn-lg" data-toggle="modal" 
@@ -59,17 +59,11 @@
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel" >Cadastro de Empresas</h4>
-                </div>
+                
                 <div class="modal-body">
                     <cadastro-usuario></cadastro-usuario>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Salvar</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
+                
                 </div>
             </div>
             </div>   

@@ -22,8 +22,8 @@ import { Usuario } from './cadastro.model'
 export class CadastroUsuarioComponent implements OnInit{
    
    usuario : Usuario[]=[];
-   cadastro : Usuario;
-
+   cadastro : Usuario[]=[];
+   
     
         constructor(
             private cadastroService : CadastroService,
@@ -42,12 +42,20 @@ export class CadastroUsuarioComponent implements OnInit{
                         for(let key in data){
                             myAray.push(data[key]);
                         }
-                        this.usuario = myAray;
+                        this.cadastro = myAray;
+                        console.log(this.cadastro);
                     }
                 )
             }
 
-            getTeste(){
+            getFibase():void{
+                this.cadastroService.getTitle()
+                .subscribe(
+                    (data : any) => console.log(data)
+                )
+            }
+
+           /* getTeste(){
                 return this.cadastroService.getContato()
                 .then((usuario : Usuario[])=>{
                     const array = [];
@@ -56,22 +64,30 @@ export class CadastroUsuarioComponent implements OnInit{
                     }
                     this.usuario = array
                 })
-            }
+            }*/
 
-            bustaId(usuario : Usuario):void{
+           /* bustaId(usuario : Usuario):void{
                 this.cadastroService.getFindId(usuario)
                 .then((cadastro :Usuario)=>{
                     console.log(cadastro)
                 })
+            }*/
+
+            salvar(cnpj:string, razao:string){
+                let promise;
+              /*  this.cadastroService.create({cnpj:cnpj,razao:razao})
+                .subscribe(
+                    data => console.log(data,"salvou"),
+                    error => console.error("erro")
+                );*/
+                
+                promise = this.cadastroService.post();
+                promise.then();
+                console.log("salvou");
             }
 
-            salva(){
-                
-                this.cadastroService.create(this.usuario)
-                .subscribe(
-                    data => console.log(data),
-                    error => console.error("erro")
-                )
+            log(usuario){
+                console.log(usuario);
             }
 
             

@@ -7,7 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Cadastromodule } from './cadastroUsuario/cadastro.module';
 
+
+
 import { CadastroService } from './cadastroUsuario/cadastro.service';
+
 
 
 @NgModule({
@@ -23,6 +26,9 @@ import { CadastroService } from './cadastroUsuario/cadastro.service';
     JsonpModule
   ],
   providers: [CadastroService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports : [
+    FormsModule
+  ]
 })
 export class AppModule { }
