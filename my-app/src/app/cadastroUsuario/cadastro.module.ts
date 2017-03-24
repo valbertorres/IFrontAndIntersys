@@ -6,6 +6,13 @@ import { LoginComponent } from './../login/login.component';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FocusDirective } from './focus.directive';
+
+import { DataDirective } from '../directive/data.directive';
+
+
+
+
 
 @NgModule({
     imports: [
@@ -15,8 +22,10 @@ import { FormsModule } from '@angular/forms';
     ],
      declarations:[
          CadastroUsuarioComponent,
-         LoginComponent
-     ],
+         LoginComponent,
+         FocusDirective,
+         DataDirective
+         ],
      exports:[
          CadastroUsuarioComponent,
          LoginComponent

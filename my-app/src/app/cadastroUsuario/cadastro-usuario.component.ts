@@ -1,15 +1,16 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit, Input,Renderer,ElementRef } from '@angular/core';
 
 import { CadastroService } from './cadastro.service';
 import { Observable }       from 'rxjs/Observable';
 import { Location } from '@angular/common';
+import {EventEmitter} from "@angular/common/src/facade/async";
 
 import { Response } from '@angular/http';
 
 import { Usuario } from './cadastro.model'
+import * as $ from 'jquery';
 
-
-
+declare var jQuery : any;
 
 @Component({
     moduleId: module.id,
@@ -21,17 +22,29 @@ import { Usuario } from './cadastro.model'
 })
 export class CadastroUsuarioComponent implements OnInit{
    
+    public myFocusEvent = new EventEmitter<boolean>();
+    private dataPikaday : any;
+
+    private inputFocused = true;
    usuario : Usuario[]=[];
    cadastro : Usuario[]=[];
    
     
         constructor(
             private cadastroService : CadastroService,
-            private location : Location
+            private location : Location,
+            private element : ElementRef
+
         ){} 
 
         ngOnInit(){
             this.getCadastro();
+        }
+
+    
+
+        setMyFocusEvent(myFocusEvent:boolean){
+            this.myFocusEvent.emit(myFocusEvent);
         }
 
             getCadastro(){
@@ -86,12 +99,12 @@ export class CadastroUsuarioComponent implements OnInit{
                 console.log("salvou");
             }
 
-            log(usuario){
-                console.log(usuario);
+            log(tem){
+                console.log(tem);
             }
-
             
 }
-
-
-
+$(function () {
+               console.log("ativoud focus");
+  
+            });

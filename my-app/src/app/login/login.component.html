@@ -1,4 +1,5 @@
 <div class="container">
+  <div id="container">
 <h1 class="h1Login">Login do Usuário</h1>
 <div class="jumbotron">
   <div class="container">
@@ -7,7 +8,10 @@
           <div class="form-group">
               <label for="cnpj" class="control-label col-sm-3">CNPJ da Empresa:</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="Cnpj" required [(ngModel)]="login.ccnpj">
+                <input type="text" class="form-control" name="Cnpj" required 
+                [(ngModel)]="login.ccnpj"
+                autofocus
+                placeholder="00.000.000/0001-00">
               </div>
               <div class="col-sm-5">
                 <input type="text" class="form-control" name="subCnpj" disabled>
@@ -28,7 +32,9 @@
             <div class="form-group">
               <label for="cnpj" class="control-label col-sm-3">CPF do Usuário:</label>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="cpf" required>
+                <input type="text" class="form-control" name="cpf" [(ngModel)]="login.cpf" 
+                required
+                placeholder="000.000.000-00">
               </div>
               <div class="col-sm-5">
                 <input type="text" class="form-control" name="subCpf" disabled>
@@ -38,7 +44,7 @@
             <div class="form-group">
               <label for="senha" class="control-label col-sm-3">Senha de Acesso:</label>
               <div class="col-sm-3">
-                <input type="password" class="form-control" name="senha">
+                <input type="password" class="form-control" name="senha" [(ngModel)]="login.senha">
               </div>
             </div>
             
@@ -59,10 +65,8 @@
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
-                
-                <div class="modal-body">
+
                     <cadastro-usuario></cadastro-usuario>
-                </div>
                 
                 </div>
             </div>
@@ -70,6 +74,7 @@
 
       </form>
   </div>
+</div>
 </div>
 </div>
 

@@ -1,26 +1,31 @@
 
 <div class="container" >
-     <div class="modal-header">
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <form  #usuarioForms ="ngForm">
+     <div class="modal-header" id="divServico">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="closeModal">&times;</span></button>
          <h4 class="modal-title" id="myModalLabel" >Cadastro de Empresas</h4>
     </div>
-    <form  #UsuarioForms ="ngForm">
+    <div class="modal-body">
         <!--código de acesso--> 
-       <div class="form-group form-group-sm">
+       <div class="form-group form-group-sm" id="">
               <label for="senha" class="control-label col-sm-2">Senha:</label>
               <div class="col-sm-4">
-            <input type="password" class="form-control" placeholder="Insira uma senha para acesso!" 
-            aria-describedby="sizing-addon3"
-            name="senha"
-            [(ngModel)]="usuario.senha"
-            >
+                    <input type="password" class="form-control" placeholder="Insira uma senha para acesso!" 
+                    aria-describedby="sizing-addon3"
+                    name="senha"
+                    id="modalSenha"
+                    [(ngModel)]="usuario.senha"
+                    required
+                    #spy
+                    autofocus>
               </div>
+
               <!--CNPJ-->
               <label for="cnpj" class="control-label col-sm-2">CNPJ:</label>
               <div class="col-sm-4">
-            <input type="text" class="form-control" placeholder="CNPJ da empresa " aria-describedby="sizing-addon3"
+            <input type="text" class="form-control" placeholder="00.000.000/0001-00 " aria-describedby="sizing-addon3"
             name="cpj" [(ngModel)]="usuario.ccnpj"
-            #cnpj>
+            required >
               </div>
             </div>
 
@@ -31,7 +36,7 @@
             <input type="text" class="form-control" placeholder="Razão Social " aria-describedby="sizing-addon3"
             name="cdenom"
             [(ngModel)]="usuario.cdenom"
-            #razao>
+            required>
               </div>
             </div>
             
@@ -39,7 +44,9 @@
             <div class="form-group form-group-sm">
               <label for="cep" class="control-label col-sm-2">CEP:</label>
               <div class="col-sm-3">
-            <input type="text" class="form-control" placeholder="CEP" aria-describedby="sizing-addon3">
+            <input type="text" class="form-control" placeholder="000000-00" aria-describedby="sizing-addon3" name="cep" 
+            [(ngModel)]="usuario.cep"
+            required>
               </div>
               <label for="numero" class="control-label col-sm-2">N°:</label>
               <div class="col-sm-2">
@@ -49,22 +56,23 @@
 
              <!--logradura-->
             <div class="form-group form-group-sm">
-              <label for="Logradoura" class="control-label col-sm-2">Logradoura:</label>
-              <div class="col-sm-3">
-            <input type="text" class="form-control" placeholder="Insirar uma logradoura" aria-describedby="sizing-addon3">
+                    <label for="Logradoura" class="control-label col-sm-2">Logradoura:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" placeholder="Insirar uma logradoura" aria-describedby="sizing-addon3">
               </div>
+
               <!--complemento-->
               <label for="complento" class="control-label col-sm-2">complemento:</label>
-              <div class="col-sm-5">
-            <input type="text" class="form-control" placeholder="Complemento..." aria-describedby="sizing-addon3">
-              </div>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" placeholder="Complemento..." aria-describedby="sizing-addon3">
+                </div>
             </div>
 
             <!--bairro-->
             <div class="form-group form-group-sm">
               <label for="bairro" class="control-label col-sm-2">Bairro:</label>
               <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="Insira o Bairro..." aria-describedby="sizing-addon3">
+                <input type="text" class="form-control" placeholder="Insira o Bairro..." aria-describedby="sizing-addon3">
               </div>
             </div>
 
@@ -77,69 +85,79 @@
                <!--Cidade-->
                 <label for="cidade" class="control-label col-sm-1">Cidade:</label>
                     <div class="col-sm-3">
-                    <input type="text" class="form-control" placeholder="Insira o 
-                    nome da cidade" aria-describedby="sizing-addon3">
+                    <input type="text" class="form-control" placeholder="Insira o nome da cidade" 
+                    aria-describedby="sizing-addon3">
               </div>
                <!--Uf-->
               <label for="uf" class="control-label col-sm-1">UF:</label>
               <div class="col-sm-2">
-            <input type="text" class="form-control" placeholder="Uf" aria-describedby="sizing-addon3">
+            <input type="text" class="form-control" placeholder="Uf" aria-describedby="sizing-addon3" required>
               </div>
             </div>
     
-    <div class="container" id="checkboxCadastro">
-        <div class="row" id="divServico" >
-        <H6>SERVIÇOS A SEREM COTADOS</H6>
-    </div>
-        <div class="row">
-            <label><input type="checkbox" value="">Auditoria de Estoque</label>
-        </div>
-        <div class="row">
-            <label><input type="checkbox" value="">Analise de Balanço</label>
-        </div>
-        <div class="row">
-            <label><input type="checkbox" value="">Comparativo Fiscal x Contábil</label>
-        </div>
-        <div class="row">
-            <label><input type="checkbox" value="">Todos</label>
-        </div>
-    </div>
+   
 
-          <div class="well">
-            <label for="data" class="control-label col-sm-2">Periodo de:</label>
-                <div class="input-group date col-sm-3" data-provide="datepicker" id="data1" name="data">
-                    <input type="text" class="form-control">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                </div>
+          <div class="well col-sm-12">
 
-                 <label for="data2" class="control-label col-sm-1">à:</label>
-                <div class="input-group date col-sm-3" data-provide="datepicker" id="data2" name="data2">
-                    <input type="text" class="form-control">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                </div>
-
-                <!-- calendar-->
-            <script type="text/javascript">
-                    $('#data1').datepicker({
-                    format: 'dd/mm/yyyy'
-                });
-                 $('#data2').datepicker({
-                    format: 'dd/mm/yyyy'
-                });
-              </script>
+                    <div class="container" id="checkboxCadastro">
+                        <div class="row" id="divServico" >
+                            <H6>SERVIÇOS A SEREM COTADOS</H6>
+                        </div>
+                        <div class="check">
+                        <div class="row">
+                            <label><input type="checkbox" value="">Auditoria de Estoque</label>
+                        </div>
+                        <div class="row">
+                            <label><input type="checkbox" value="">Analise de Balanço</label>
+                        </div>
+                        <div class="row">
+                            <label><input type="checkbox" value="">Comparativo Fiscal x Contábil</label>
+                        </div>
+                        <div class="row">
+                            <label><input type="checkbox" value="">Todos</label>
+                        </div>
+                        </div>
+                 </div>
+            <div class="well">
+            <div class="form-group ">
+                 <label for="dataPikaday" class="control-label col-sm-2">Periodo:</label>
+                 <div class="col-sm-3">
+                    <input type="text" 
+                        class="form-control "
+                        id="dataPikaday"
+                        name="dataPikaday"
+                        [(ngModel)]="dataPikaday"
+                        placeholder="dd/mm/yyyy"
+                        DataPiker="dataPikaday">
+                 </div>
+                 <label for="dataPikaday" class="control-label col-sm-2">à:</label>
+                 <div class="col-sm-3">
+                    <input type="text" 
+                        class="form-control "
+                        id="dataPikaday2"
+                        name="dataPikaday2"
+                        [(ngModel)]="dataPikaday2"
+                        placeholder="dd/mm/yyyy"
+                        DataPiker="dataPikaday2">
+                 </div>
+                
+            </div>
+            </div>
           </div>
+
+           <h4>{{calendar}}</h4> 
           <div class="calt"></div>
+
+          <!-- btn salvar ou cancelar-->
+              <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="log(usuario)" 
+                    [disabled]="!usuarioForms.form.valid">Salvar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" >Cancelar</button>
+                </div>
+        </div>
 </form>
 </div>
-<!-- btn salvar ou cancelar-->
-              <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" (click)="log(usuario)">Salvar</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
+
 
 <!--<table class="table table-hover">
            <thead> 
@@ -160,9 +178,3 @@
                
            </tbody>
     </table>-->
-
-
-
-
-
-

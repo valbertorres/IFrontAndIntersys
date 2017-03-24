@@ -13,7 +13,7 @@ import { LoginModel } from './login.model';
   
 
 export class LoginComponent implements OnInit {
-    @Input() change : string;
+    
 
     private login : LoginModel[]=[];
 

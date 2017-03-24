@@ -2,12 +2,21 @@
     color: white;
 }
 #divServico{
-    background: #D3D3D3;
+    background: #4A708B;
     text-align: center;
-    color: black;
+    color: white;
 }
 
 #checkboxCadastro{
     float: center;
     font-size: 10;
+    
+}
+
+.check{
+    margin-left: 40%;
+}
+
+#closeModal{
+    color: white;
 }

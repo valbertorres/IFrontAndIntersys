@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Cadastromodule } from './cadastroUsuario/cadastro.module';
 
-
+import 'pikaday/css/pikaday.css';
+import 'moment/moment.js';
 
 import { CadastroService } from './cadastroUsuario/cadastro.service';
+
 
 
 
